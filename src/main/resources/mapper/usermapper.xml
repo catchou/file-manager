@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dsz.swu.dao.UserDao">
+
+    <resultMap type="dsz.swu.model.User" id="userMapper">
+        <id property="id" column="id" />
+        <result property="userName" column="username" />
+        <result property="password" column="password" />
+    </resultMap>
+    <!-- 为dao接口方法提供sql语句配置-->
+    <!-- 此处select标签的id值对应Mapper类中方法名 -->
+    <select id="findUserByName" parameterType="string" resultMap="userMapper">
+        <!-- 此处写sql语句,#{Mapper类传入的参数} -->
+        select * from T_USER where username = #{username,jdbcType=VARCHAR}
+    </select>
+</mapper>

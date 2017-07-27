@@ -5,16 +5,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>欢迎</title>
+    <title>失败</title>
 </head>
 <body>
-<h2>Hello World!</h2>
-
-<form action="login" method="POST">
-    用户名：<input id="username" name="username" type="text" /><br>
-    密  码：<input id="password" name="password" type="password" /><br>
-    <input type="submit" id="login">
-</form>
+<h2>出错了！</h2>
 
 </body>
 </html>

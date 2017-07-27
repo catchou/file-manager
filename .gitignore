@@ -1,0 +1,4 @@
+# 忽略jdbc配置文件
+*.properties
+
+

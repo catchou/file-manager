@@ -10,11 +10,11 @@
 <body>
 <h2>Hello World!</h2>
 
-<form action="login">
-    用户名：<input id="username" name="username" type="text"></input><br>
-    密  码：<input id="username" name="password" type="password"></input><br>
-    <input type="submit">
+<form action="login" method="POST">
+    用户名：<input id="username" name="username" type="text" /><br>
+    密  码：<input id="password" name="password" type="password" /><br>
+    <input type="submit" id="login">
 </form>
-<span>当前IP：<%=request.getRemoteAddr() %></span>
+
 </body>
 </html>
