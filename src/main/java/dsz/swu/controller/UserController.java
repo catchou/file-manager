@@ -14,14 +14,13 @@ import javax.annotation.Resource;
 
 @Controller
 @Scope(value="prototype")
-//@RequestMapping("/user")
+@RequestMapping("/user")
 
 public class UserController {
     @Resource
     private UserService userService;
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-
     public String login(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
         User user = new User();
         user.setUserName(request.getParameter("username"));
@@ -39,5 +38,19 @@ public class UserController {
         }
         System.out.print("fail");
         return "fail";
+    }
+
+    @RequestMapping(value="/registerok", method = RequestMethod.POST)
+    public void register(HttpServletRequest request, HttpServletResponse response){
+        if(userService.checkUserExistByName(request.getParameter("username"))){
+            //此用户名已被注册
+            System.out.println("用户名已经被注册!");
+        }else{
+            userService.userRegister(request.getParameter("username"), request.getParameter("password"));
+            System.out.println("register username=" + request.getParameter("username"));
+            System.out.println("register password=" + request.getParameter("password"));
+            System.out.println("注册成功！");
+        }
+
     }
 }

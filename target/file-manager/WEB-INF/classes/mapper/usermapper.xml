@@ -16,4 +16,8 @@
         <!-- 此处写sql语句,#{Mapper类传入的参数} -->
         select * from T_USER where username = #{username,jdbcType=VARCHAR}
     </select>
+
+    <insert id="insertUserByNameAndPassword" parameterType="string">
+        insert into T_USER(id, username, password) values('5',#{username}, #{password})
+    </insert>
 </mapper>

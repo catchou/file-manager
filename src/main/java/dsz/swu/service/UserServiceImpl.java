@@ -13,6 +13,11 @@ public class UserServiceImpl implements UserService{
     @Resource
     private UserDao userDao;
 
+    /* 注册 */
+    public void userRegister(String userName, String password) {
+        userDao.insertUserByNameAndPassword(userName, password);
+    }
+
     /* 登录验证 */
     public User checkLogin(String userName, String password) {
         //根据用户名实例化用户对象
@@ -33,6 +38,22 @@ public class UserServiceImpl implements UserService{
         }else{
             return null;
         }
+
+    }
+
+    /*查看用户是否存在
+     */
+    public boolean checkUserExistByName(String username) {
+        User user = userDao.findUserByName(username);
+        if(user!=null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /* 修改密码*/
+    public void changePassword(String newPassword) {
 
     }
 }
