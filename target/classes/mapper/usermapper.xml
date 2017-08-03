@@ -5,19 +5,57 @@
 
 <mapper namespace="dsz.swu.dao.UserDao">
 
-    <resultMap type="dsz.swu.model.User" id="userMapper">
-        <id property="id" column="id" />
-        <result property="userName" column="username" />
+    <resultMap type="dsz.swu.model.User" id="UserMap">
+        <id property="userName" column="username" />
+        <result property="id" column="id" />
         <result property="password" column="password" />
+        <collection property="docList" column="id" ofType="dsz.swu.model.Doc">
+            <id property="docID" column="id" />
+            <result property="DocName" column="DocName" />
+            <result property="updateDate" column="UpdateDate" />
+            <result property="authorID" column="AuthorID" />
+        </collection>
     </resultMap>
     <!-- 为dao接口方法提供sql语句配置-->
     <!-- 此处select标签的id值对应Mapper类中方法名 -->
-    <select id="findUserByName" parameterType="string" resultMap="userMapper">
+    <select id="findUserByName" parameterType="string" resultMap="UserMap">
         <!-- 此处写sql语句,#{Mapper类传入的参数} -->
-        select * from T_USER where username = #{username,jdbcType=VARCHAR}
+        select * from T_USER  where username = #{username,jdbcType=VARCHAR}
     </select>
 
     <insert id="insertUserByNameAndPassword" parameterType="string">
-        insert into T_USER(id, username, password) values('5',#{username}, #{password})
+        insert into T_USER(id, username, password) values(#{username}, #{password})
     </insert>
+
+    <select id="getUserNameById" parameterType="Integer" resultType="string">
+        select username from T_USER where id = '5'
+    </select>
+
+    <update id="changePassword">
+        UPDATE T_USER SET password = #{newPassword} WHERE id = #{userId}
+    </update>
+
+    <insert id="insertUser" parameterType="dsz.swu.model.User">
+        INSERT  into T_USER(username, password)
+        VALUES (#{userName}, #{password})
+    </insert>
+
+    <select id="selectUserByName" parameterType="java.lang.String" resultMap="UserMap">
+        SELECT * FROM T_USER
+        WHERE username LIKE CONCAT('%',#{name},'%')
+    </select>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM T_USER
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectAllUser" resultMap="UserMap">
+        SELECT * FROM T_USER
+    </select>
+
+    <select id="selectUserById" parameterType="java.lang.Integer" resultMap="UserMap">
+        SELECT * FROM T_USER
+        WHERE id = #{id}
+    </select>
 </mapper>

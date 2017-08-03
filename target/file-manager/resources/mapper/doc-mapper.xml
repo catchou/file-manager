@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dsz.swu.dao.DocDao">
+
+    <insert id="addDocIntoDB" parameterType="dsz.swu.model.Doc">
+          insert into T_DOC(DocName, UpdateDate, AuthorID, DocLabel) values(#{docName}, #{updateDate}, #{authorID}, #{docLabel})
+    </insert>
+
+    <resultMap id="docMap" type="dsz.swu.model.Doc">
+        <id property="docID" column="id" />
+        <result property="DocName" column="DocName" />
+        <result property="updateDate" column="UpdateDate" />
+        <result property="authorID" column="AuthorID" />
+        <result property="docLabel" column="DocLabel" />
+    </resultMap>
+
+    <select id="getDocByNameAndAuthorID" resultType="dsz.swu.model.Doc">
+          SELECT * FROM T_DOC WHERE DocName = #{docName} and AuthorID = #{authorID}
+    </select>
+    
+    <select id="getDocListByUserID" parameterType="Integer" resultMap="docMap">
+        SELECT * FROM T_DOC WHERE AuthorID = #{id}
+    </select>
+
+    <select id="getDocListByUserIDAndDoclabel" resultType="dsz.swu.model.Doc">
+        SELECT * FROM T_DOC WHERE AuthorID = #{userID} and DocLabel = #{docLabel}
+    </select>
+</mapper>

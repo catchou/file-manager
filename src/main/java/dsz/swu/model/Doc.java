@@ -1,17 +1,16 @@
 package dsz.swu.model;
 import java.util.Date;
 public class Doc  {
-    private int docID;
+    private Integer docID;
     private String DocName;
-    private String DocLabel;
-    private Date uploadDate;
-    private Date lastEditDate;
+    private Date updateDate;
     private int authorID;
+    private String docLabel;
 
-    public int getDocID() {
+    public Integer getDocID() {
         return docID;
     }
-    public void setDocID(int docID) {
+    public void setDocID(Integer docID) {
         this.docID = docID;
     }
 
@@ -22,35 +21,25 @@ public class Doc  {
         DocName = docName;
     }
 
-    public String getDocLabel() {
-        return DocLabel;
-    }
-
-    public void setDocLabel(String docLabel) {
-        DocLabel = docLabel;
-    }
-
     public Date getUploadDate() {
-        return uploadDate;
+        return updateDate;
     }
-
     public void setUploadDate(Date uploadDate) {
-        this.uploadDate = uploadDate;
-    }
-
-    public Date getLastEditDate() {
-        return lastEditDate;
-    }
-
-    public void setLastEditDate(Date lastEditDate) {
-        this.lastEditDate = lastEditDate;
+        this.updateDate = uploadDate;
     }
 
     public int getAuthorID() {
         return authorID;
     }
-
     public void setAuthorID(int authorID) {
         this.authorID = authorID;
+    }
+
+    public String getDocLabel() {
+        return docLabel;
+    }
+
+    public void setDocLabel(String docLabel) {
+        this.docLabel = docLabel;
     }
 }

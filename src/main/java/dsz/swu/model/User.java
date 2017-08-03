@@ -1,5 +1,5 @@
 package dsz.swu.model;
-
+import java.util.List;
 /**
  * 用户表
  */
@@ -7,7 +7,7 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String userEmail;
+    private List<Doc> docList;
 
     public int getId(){
         return this.id;
@@ -28,6 +28,14 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Doc> getDocList() {
+        return docList;
+    }
+
+    public void setDocList(List<Doc> docList) {
+        this.docList = docList;
     }
 
 }

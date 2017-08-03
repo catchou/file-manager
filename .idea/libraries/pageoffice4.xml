@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pageoffice4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/pageoffice4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

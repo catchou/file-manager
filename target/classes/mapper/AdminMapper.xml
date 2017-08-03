@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dsz.swu.dao.AdminDao">
+    <resultMap id="AdminMap" type="dsz.swu.model.Admin">
+        <id column="id" property="adminId"/>
+        <result column="Password" property="adminPwd"/>
+        <result column="GroupId" property="groupId"/>
+    </resultMap>
+    <select id="getAdminById" resultMap="AdminMap" parameterType="java.lang.Integer">
+        SELECT * FROM T_ADMIN
+        WHERE id=#{adminId}
+    </select>
+</mapper>

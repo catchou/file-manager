@@ -168,6 +168,18 @@
       <version>0.9.1.2</version>
     </dependency>
 
+    <!-- 上传文件相关包 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>file-manager</finalName>

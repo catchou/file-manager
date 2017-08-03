@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dsz.swu.dao.UserDao">
+    <resultMap id="LogMap" type="dsz.swu.model.Log">
+        <id column="DocId" property="docId"/>
+        <result column="AuthorId" property="authorId"/>
+        <result column="Content" property="content"/>
+        <result column="Date" property="date"/>
+    </resultMap>
+    <select id="getAllLog" parameterType="java.lang.Integer" resultMap="LogMap">
+        SELECT * FROM log
+        WHERE AuthorId=#{id}
+    </select>
+    <select id="insertLog" resultMap="LogMap" parameterType="dsz.swu.model.Log">
+        INSERT INTO log(DocId, AuthorId, Content, "Date")
+        VALUES (#{docId},#{authorId},#{content},#{date})
+    </select>
+</mapper>
