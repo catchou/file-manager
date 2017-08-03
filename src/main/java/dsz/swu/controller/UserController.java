@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 @Controller
 @Scope(value="prototype")
@@ -49,11 +50,32 @@ public class UserController {
         if(userService.checkUserExistByName(request.getParameter("username"))){
             //此用户名已被注册
             System.out.println("用户名已经被注册!");
+            response.setContentType("text/html; charset=UTF-8"); //转码
+            try{
+                PrintWriter out = response.getWriter();
+                out.flush();
+                out.println("<script>");
+                out.println("alert('用户名已经被注册!');");
+                out.println("history.back();");
+                out.println("</script>");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            //return "Manage_register";
         }else{
             userService.userRegister(request.getParameter("username"), request.getParameter("password"));
-            System.out.println("register username=" + request.getParameter("username"));
-            System.out.println("register password=" + request.getParameter("password"));
-            System.out.println("注册成功！");
+            response.setContentType("text/html; charset=UTF-8"); //转码
+            try{
+                PrintWriter out = response.getWriter();
+                out.flush();
+                out.println("<script>");
+                out.println("alert('注册成功!');");
+                out.println("history.back();");
+                out.println("</script>");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            //return "../login";
         }
 
     }

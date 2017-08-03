@@ -42,38 +42,25 @@
 </div>
 <h1 style="color:black;position: absolute;top:200px;left:600px;">用户注册</h1>
 <div style="position: absolute; top:250px; left:500px;">
-    <form action="user.do" style="color: black">
+    <form action="/registerok" method="post" style="color: black">
         <table>
             <tr>
                 <td class="td1">用戶名：</td>
-                <td class="td1"><input class="input1" type="text"/></td>
+                <td class="td1"><input class="input1" type="text" name="username"/></td>
             </tr>
             <tr>
                 <td class="td1">密码：</td>
-                <td class="td1"><input type="password" class="input1" name="textfield2" id="textfield2" onkeyup="compare();"/></td>
+                <td class="td1"><input type="password" class="input1" name="password" id="password" onkeyup="compare();"/></td>
             </tr>
             <tr>
                 <td class="td1">确认密码：</td>
-                <td class="td1"><input type="password" class="input1" name="textfield3" id="textfield3" onkeyup="compare();" /></td>
+                <td class="td1"><input type="password" class="input1" name="password" id="passwordConfirm" onkeyup="compare();" /></td>
                 <td><div id="ts"></div></td>
             </tr>
-            <tr>
-                <td class="td1">姓名：</td>
-                <td class="td1"><input class="input1" type="text"/></td>
-            </tr>
-            <tr>
-                <td class="td1">年龄：</td>
-                <td class="td1"><input class="input1" type="text"/></td>
-            </tr>
-            <tr>
-                <td class="td1">性别：</td>
-                <td><label style="font-size: 30px;">女<input name="sex" type="radio"></label>&nbsp;&nbsp;
-                    <label style="font-size: 30px;">男<input name="sex" type="radio"></label></td>
-                <td><p class="wrrong">*此处不能为空</p></td>
-            </tr>
+
             <tr>
                 <td></td>
-                <td><a href="login.jsp"><input type="button" style="background-color: white; width:100px;height: 30px;" value="确定" /></a><td>
+                <td><input type="submit" style="background-color: white; width:100px;height: 30px;" value="确定" /><td>
             </tr>
         </table>
     </form>

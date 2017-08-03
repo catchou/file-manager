@@ -1,4 +1,6 @@
 # 忽略jdbc配置文件
 *.properties
+# 忽略target文件夹
+/target
 
 

@@ -24,7 +24,7 @@
     </select>
 
     <insert id="insertUserByNameAndPassword" parameterType="string">
-        insert into T_USER(id, username, password) values(#{username}, #{password})
+        insert into T_USER(username, password) values(#{username}, #{password})
     </insert>
 
     <select id="getUserNameById" parameterType="Integer" resultType="string">

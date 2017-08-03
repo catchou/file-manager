@@ -81,7 +81,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <form action="/delete-file" method="post">
-                    <input type="submit" class="delete" id="delete" value="文档删除"></input><br><br>
+                    <input type="hidden" value="">
+                    <input type="submit" class="delete" id="delete" value="文档删除" /><br><br>
                 </form>
 
 
@@ -94,11 +95,15 @@
                             <td class="unit"><nobr>修改时间</nobr></td>
                             <td class="unit"><nobr>文档操作</nobr></td>
                         </tr>
-                        <c:forEach items="${docList}" var="doc">
+                        <c:forEach items="${docList}" var="doc" varStatus="loop">
                             <tr style="width:100%; background-color: #ededed; color: #666666">
-                                <td width=20px  align="center"><input type="checkbox"></td>
+                                <td width=20px  align="center">
+                                    <form action="/show-files" method="post">
+                                        <input type="checkbox" name="checkedDocId" value="${docIdList[loop.count - 1]}">
+                                    </form>
+                                </td>
                                 <td class="unit" height="20px">${doc.docName}</td>
-                                <td class="unit">${doc.uploadDate}</td>
+                                <td class="unit"><fmt:formatDate value="${doc.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                 <td style="padding: 5px; text-align: center;">
                                     <a href="#">查看</a>
                                     <a href="test.jsp">编辑</a>

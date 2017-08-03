@@ -38,4 +38,8 @@
     <select id="getDocIdByUserIDAndDocLabel" resultType="Integer">
         SELECT id FROM T_DOC WHERE AuthorID = #{userID} and DocName = #{docName}
     </select>
+
+    <select id="getDocNameById" parameterType="Integer" resultType="string">
+        SELECT DocName FROM T_USER WHERE id = #{docID}
+    </select>
 </mapper>
